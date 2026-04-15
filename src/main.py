@@ -9,25 +9,33 @@ You will implement the functions in recommender.py:
 - recommend_songs
 """
 
-from recommender import load_songs, recommend_songs
+from src.recommender import load_songs, recommend_songs
+
+
+USERS = {
+    "High-Energy Pop": {"genre": "pop",      "mood": "happy",   "energy": 0.9},
+    "Chill Lofi":      {"genre": "lofi",     "mood": "chill",   "energy": 0.35},
+    "Deep Intense Rock": {"genre": "rock",   "mood": "intense", "energy": 0.92},
+}
+
+
+def print_recommendations(label: str, recommendations: list) -> None:
+    print("\n" + "=" * 44)
+    print(f"  {label.upper()}")
+    print("=" * 44)
+    for rank, (song, score, explanation) in enumerate(recommendations, start=1):
+        print(f"\n  #{rank}  {song['title']} by {song['artist']}")
+        print(f"       Score : {score:.2f} / 4.00")
+        print(f"       Why   : {explanation}")
+    print("\n" + "=" * 44)
 
 
 def main() -> None:
-    songs = load_songs("data/songs.csv") 
+    songs = load_songs("data/songs.csv")
 
-    # Starter example profile
-    user_prefs = {"genre": "pop", "mood": "happy", "energy": 0.8}
-
-    recommendations = recommend_songs(user_prefs, songs, k=5)
-
-    print("\nTop recommendations:\n")
-    for rec in recommendations:
-        # You decide the structure of each returned item.
-        # A common pattern is: (song, score, explanation)
-        song, score, explanation = rec
-        print(f"{song['title']} - Score: {score:.2f}")
-        print(f"Because: {explanation}")
-        print()
+    for label, user_prefs in USERS.items():
+        recommendations = recommend_songs(user_prefs, songs, k=5)
+        print_recommendations(label, recommendations)
 
 
 if __name__ == "__main__":

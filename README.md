@@ -29,6 +29,14 @@ Some prompts to answer:
 
 You can include a simple diagram or bullet list if helpful.
 
+Real-world recommender systems often use a combination of content-based features (like genre or mood) and collaborative filtering (what similar users liked). Thus, avoiding repetitiveness and catering to new users or content. 
+
+The recommender first normalizes large features such as tempo_bpm by dividing it by 200. It takes the difference between the user's preference and the song's feature for each attribute. It squares these differnces, then adds them all together. It finally takes the square root of that sum. To convert the distance into a score, it adds the distance to 1 and then divides 1 by that sum. 
+
+My system utilizes numerical features like energy, tempo_bpm, valence, danceability, and acousticness to calcualte a score. The user already has a set preference score. It compares the song's features to the user's preferences and calculates a score based on how closely they match. The closer the score is to 1, the better the match. The system then sorts the songs based on their score and recommends the top-ranking songs to the user.
+
+The genre match is worth 2.0 points if the song's genre matches the user's preferred genre, and 0 points if it does not. As for the mood match, it is worth 1.0 point if the song's mood matches the user's, and 0 if it does not. This is an indication that the algorithm prioritizes genre matching more than mood matching when calculating the overall score for a song.
+
 ---
 
 ## Getting Started

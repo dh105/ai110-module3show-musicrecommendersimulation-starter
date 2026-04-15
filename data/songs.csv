@@ -1,11 +1,31 @@
-id,title,artist,genre,mood,energy,tempo_bpm,valence,danceability,acousticness
-1,Sunrise City,Neon Echo,pop,happy,0.82,118,0.84,0.79,0.18
-2,Midnight Coding,LoRoom,lofi,chill,0.42,78,0.56,0.62,0.71
-3,Storm Runner,Voltline,rock,intense,0.91,152,0.48,0.66,0.10
-4,Library Rain,Paper Lanterns,lofi,chill,0.35,72,0.60,0.58,0.86
-5,Gym Hero,Max Pulse,pop,intense,0.93,132,0.77,0.88,0.05
-6,Spacewalk Thoughts,Orbit Bloom,ambient,chill,0.28,60,0.65,0.41,0.92
-7,Coffee Shop Stories,Slow Stereo,jazz,relaxed,0.37,90,0.71,0.54,0.89
-8,Night Drive Loop,Neon Echo,synthwave,moody,0.75,110,0.49,0.73,0.22
-9,Focus Flow,LoRoom,lofi,focused,0.40,80,0.59,0.60,0.78
-10,Rooftop Lights,Indigo Parade,indie pop,happy,0.76,124,0.81,0.82,0.35
+id,title,artist,genre,mood,energy,tempo_bpm,valence,danceability,acousticness,liveness,popularity
+1,Sunrise City,Neon Echo,pop,happy,0.82,118,0.84,0.79,0.18,0.12,83
+2,Midnight Coding,LoRoom,lofi,chill,0.42,78,0.56,0.62,0.71,0.09,76
+3,Storm Runner,Voltline,rock,intense,0.91,152,0.48,0.66,0.10,0.18,72
+4,Library Rain,Paper Lanterns,lofi,chill,0.35,72,0.60,0.58,0.86,0.07,68
+5,Gym Hero,Max Pulse,pop,intense,0.93,132,0.77,0.88,0.05,0.14,88
+6,Spacewalk Thoughts,Orbit Bloom,ambient,chill,0.28,60,0.65,0.41,0.92,0.05,64
+7,Coffee Shop Stories,Slow Stereo,jazz,relaxed,0.37,90,0.71,0.54,0.89,0.11,70
+8,Night Drive Loop,Neon Echo,synthwave,moody,0.75,110,0.49,0.73,0.22,0.13,79
+9,Focus Flow,LoRoom,lofi,focused,0.40,80,0.59,0.60,0.78,0.08,81
+10,Rooftop Lights,Indigo Parade,indie pop,happy,0.76,124,0.81,0.82,0.35,0.10,85
+11,Golden Horizon,Saffron Skies,reggae,uplifted,0.68,96,0.88,0.77,0.34,0.16,74
+12,Glass Cathedral,Velvet Static,classical,peaceful,0.22,58,0.52,0.18,0.97,0.06,62
+13,Desert Circuit,Mirror Atlas,electronic,driving,0.86,128,0.63,0.84,0.09,0.15,77
+14,Blue Marble Tide,Harbor Lines,folk,nostalgic,0.44,82,0.58,0.49,0.81,0.09,66
+15,Velvet Afterglow,Luna Rouge,r&b,romantic,0.57,92,0.74,0.72,0.41,0.12,73
+16,Iron Anthem,Crimson Vale,metal,aggressive,0.95,168,0.39,0.51,0.04,0.17,69
+17,Pixel Parade,Bit Blossom,chiptune,playful,0.79,140,0.83,0.87,0.12,0.20,71
+18,Northern Lights Choir,Aurora Thread,dream pop,ethereal,0.48,88,0.67,0.56,0.69,0.08,67
+19,Fireline Samba,Rio Current,latin,festive,0.84,122,0.91,0.89,0.21,0.18,80
+20,Shadow Ledger,Mono Vale,trip hop,brooding,0.51,86,0.36,0.64,0.53,0.10,65
+21,City Pulse,Silver Avenue,pop,excited,0.88,126,0.86,0.90,0.14,0.13,92
+22,Dance Signal,Prism Beat,dance,euphoric,0.93,128,0.88,0.94,0.06,0.18,97
+23,Electric Hearts,Nova Bloom,electronic,energetic,0.91,130,0.79,0.87,0.08,0.16,95
+24,Weekend Lights,Coastline Kids,indie pop,joyful,0.74,116,0.82,0.81,0.28,0.11,89
+25,Golden Hour Run,Metro Skies,synthpop,upbeat,0.85,124,0.84,0.88,0.12,0.14,94
+26,Quiet Corners,Ash Harbor,folk,melancholy,0.31,70,0.42,0.39,0.88,0.07,34
+27,Static Snow,Velvet Tape,ambient,lonely,0.24,58,0.37,0.28,0.95,0.05,29
+28,Basement Theory,Wire Orchard,experimental,uneasy,0.47,84,0.33,0.45,0.61,0.14,22
+29,Faded Polaroid,Moon Thread,dream pop,wistful,0.40,76,0.49,0.50,0.73,0.08,31
+30,Small Town Echo,North Hollow,country,tender,0.52,88,0.61,0.57,0.67,0.10,38
