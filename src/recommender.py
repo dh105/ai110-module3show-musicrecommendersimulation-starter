@@ -47,9 +47,9 @@ class Recommender:
             score += 2.0
             reasons.append(f"genre match ({song.genre}, +2.0)")
 
-        if song.mood == user.favorite_mood:
-            score += 1.0
-            reasons.append(f"mood match ({song.mood}, +1.0)")
+        # if song.mood == user.favorite_mood:
+        #     score += 1.0
+        #     reasons.append(f"mood match ({song.mood}, +1.0)")
 
         energy_sim = 1.0 - abs(song.energy - user.target_energy)
         score += energy_sim
@@ -94,9 +94,9 @@ def _score_song_with_reasons(user_prefs: Dict, song: Dict) -> Tuple[float, List[
         score += 2.0
         reasons.append(f"genre match ({song['genre']}, +2.0)")
 
-    if song.get("mood") == user_prefs.get("mood"):
-        score += 1.0
-        reasons.append(f"mood match ({song['mood']}, +1.0)")
+    # if song.get("mood") == user_prefs.get("mood"):
+    #     score += 1.0
+    #     reasons.append(f"mood match ({song['mood']}, +1.0)")
 
     energy_sim = 1.0 - abs(song["energy"] - user_prefs.get("energy", 0.5))
     score += energy_sim

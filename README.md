@@ -1,5 +1,6 @@
 # 🎵 Music Recommender Simulation
-
+<img src="output.png" alt="Output Example">
+<img src="edgecases.png" alt="Edge Cases Example">
 ## Project Summary
 
 In this project you will build and explain a small music recommender system.

@@ -3,109 +3,41 @@
 ## 1. Model Name  
 
 Give your model a short, descriptive name.  
-Example: **VibeFinder 1.0**  
+Example: Vibe Catcher   
 
 ---
 
 ## 2. Intended Use  
 
-Describe what your recommender is designed to do and who it is for. 
-
-Prompts:  
-
-- What kind of recommendations does it generate  
-- What assumptions does it make about the user  
-- Is this for real users or classroom exploration  
+This recommender suggests songs from a fixed 30-song catalog based on a user's preferred genre, mood, and energy level. It assumes the user knows exactly what they want and can express it as a single genre and mood. There's no browsing, history, or feedback loop. This is a classroom simulation built to explore how scoring logic and catalog design shape what gets recommended, not a production tool.
 
 ---
 
 ## 3. How the Model Works  
 
-Explain your scoring approach in simple language.  
-
-Prompts:  
-
-- What features of each song are used (genre, energy, mood, etc.)  
-- What user preferences are considered  
-- How does the model turn those into a score  
-- What changes did you make from the starter logic  
-
-Avoid code here. Pretend you are explaining the idea to a friend who does not program.
+Every song gets a score based on three things: whether its genre matches what you said you like (+2 points), whether its mood matches (+1 point), and how close its energy level is to yours (up to +1 point, scaled by distance). The genre weight is doubled because genre tends to be the strongest signal for whether someone will enjoy a song. The top 5 highest-scoring songs are returned as recommendations. The mood check was temporarily removed during testing to observe how rankings shifted — it confirmed that mood acts as a tiebreaker more than a primary filter.
 
 ---
 
 ## 4. Data  
 
-Describe the dataset the model uses.  
 
-Prompts:  
-
-- How many songs are in the catalog  
-- What genres or moods are represented  
-- Did you add or remove data  
-- Are there parts of musical taste missing in the dataset  
-
----
-
+The catalog contains 30 songs across 5 genres (pop, rock, jazz, hip-hop, electronic) and 3 moods (happy, sad, chill). Energy levels range from 0.1 to 0.9 but are clustered at the extremes, with few songs in the middle. I added a few songs to ensure each genre had at least one representative but did not attempt to balance energy or mood distributions. The dataset mostly reflects mainstream tastes and lacks representation of niche genres or complex moods.
 ## 5. Strengths  
 
-Where does your system seem to work well  
 
-Prompts:  
+The system performs well for users with clear, extreme preferences (e.g., high-energy pop or low-energy jazz) because the catalog has more songs that match those profiles. The genre weighting effectively surfaces songs that fit the user's stated favorite genre, which is often the most important factor in music preference. The energy scoring also helps differentiate songs within a genre, giving users some variety while still aligning with their overall vibe.
 
-- User types for which it gives reasonable results  
-- Any patterns you think your scoring captures correctly  
-- Cases where the recommendations matched your intuition  
+## 6. Limitations and Bias   
 
----
-
-## 6. Limitations and Bias 
-
-Where the system struggles or behaves unfairly. 
-
-Prompts:  
-
-- Features it does not consider  
-- Genres or moods that are underrepresented  
-- Cases where the system overfits to one preference  
-- Ways the scoring might unintentionally favor some users  
-
----
-
+The catalog has a thin middle energy range; very few songs have energy between 0.5 - 0.7. Users with this energy range will find mediocre recommendations. In cases where the user has an extreme energy preference (very low or very high), the system performs better because there are more songs that match those preferences. 
 ## 7. Evaluation  
 
-How you checked whether the recommender behaved as expected. 
-
-Prompts:  
-
-- Which user profiles you tested  
-- What you looked for in the recommendations  
-- What surprised you  
-- Any simple tests or comparisons you ran  
-
-No need for numeric metrics unless you created some.
-
----
+I tested three standard profiles (high-energy pop, chill lofi, deep intense rock) plus eight adversarial edge cases designed to break the scoring. I noticed that the nonexistent genre profile and the uniform no-match profile returned the exact same top-5 list, which revealed that catalog load order decides rankings when nothing matches. Temporarily removing the mood check showed that mood's 1-point weight is just enough to swap two songs' positions but not enough to change who dominates the top results overall.
 
 ## 8. Future Work  
 
-Ideas for how you would improve the model next.  
-
-Prompts:  
-
-- Additional features or preferences  
-- Better ways to explain recommendations  
-- Improving diversity among the top results  
-- Handling more complex user tastes  
-
----
-
+I would expand the dataset to include more songs, especially in the mid-energy range, and add more nuanced features like sub-genres or lyrical themes. I could introduce a mechanism to ensure that the top results aren't all from the same genre or energy level, even if they have similar scores. Finally, I would explore ways to handle users with more complex tastes, such as those who like multiple genres or moods simultaneously.
 ## 9. Personal Reflection  
 
-A few sentences about your experience.  
-
-Prompts:  
-
-- What you learned about recommender systems  
-- Something unexpected or interesting you discovered  
-- How this changed the way you think about music recommendation apps  
+It was interesting to learn how scaling works in recommender systems. I didn't understand how important it is to make calculations. I learnt that the dataset compromises a major part of the process; if the dataset is not well balanced, the recommendations will be skewed. I want to explore the bias and limitations of the dataset mroe in the future.
